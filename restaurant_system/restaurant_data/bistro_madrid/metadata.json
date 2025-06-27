@@ -1,0 +1,10 @@
+{
+  "restaurant_id": "bistro_madrid",
+  "name": "Bistro Madrid",
+  "type": "modern_casual",
+  "location": "Madrid, España",
+  "languages": ["es", "en"],
+  "timezone": "Europe/Madrid",
+  "created_at": "2025-06-27T10:48:29Z",
+  "last_updated": "2025-06-27T10:48:29Z"
+} 

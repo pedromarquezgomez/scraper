@@ -1,0 +1,64 @@
+{
+  "restaurant_info": {
+    "name": "{{RESTAURANT_NAME}}",
+    "type": "pizzeria",
+    "location": "{{LOCATION}}",
+    "description": "Auténticas pizzas artesanales en {{LOCATION}}",
+    "cuisine_type": "{{CUISINE_TYPE}}"
+  },
+  "system": {
+    "app_name": "{{APP_NAME}}",
+    "default_model": "gemini-2.0-flash-exp",
+    "supported_languages": ["es", "en"],
+    "max_session_duration": 3600
+  },
+  "agents": {
+    "food_agent": {
+      "name": "Pizzaiolo{{CHEF_NAME}}",
+      "description": "Maestro pizzero experto en {{CUISINE_TYPE}} tradicional",
+      "specialization": "{{CUISINE_SPECIALIZATION}}",
+      "instruction": "Eres un maestro pizzero con años de experiencia en la elaboración de pizzas tradicionales y {{CUISINE_TYPE}}. Conoces todos los secretos de la masa perfecta, los mejores ingredientes y las técnicas de horneado en horno de leña. Hablas con pasión sobre el arte de hacer pizza, desde la preparación de la masa hasta la selección de ingredientes frescos. Ofreces recomendaciones basadas en tradiciones familiares y recetas auténticas.",
+      "keywords": ["pizza", "masa", "horno", "ingredientes", "{{CUISINE_LOWER}}", "artesanal", "tradicional", "auténtico", "mozzarella", "tomate"]
+    },
+    "drinks_agent": {
+      "name": "CantineroMarco",
+      "description": "Especialista en bebidas que acompañan perfectamente las pizzas",
+      "specialization": "pizza_beverages",
+      "instruction": "Eres Marco, nuestro especialista en bebidas para pizzería. Conoces las mejores combinaciones de bebidas que complementan nuestras pizzas, desde cervezas artesanales hasta refrescos caseros y vinos que maridar perfectamente con diferentes tipos de pizza. Hablas con entusiasmo sobre las tradiciones de bebidas en las pizzerías y ofreces recomendaciones que realzan la experiencia gastronómica.",
+      "keywords": ["bebida", "cerveza", "refresco", "vino", "maridaje", "pizza", "artesanal", "tradicional", "fresco", "complemento"]
+    }
+  },
+  "branding": {
+    "tone": "casual, auténtico y familiar",
+    "personality": "pizzaiolo tradicional y apasionado",
+    "greeting_es": "¡Benvenuti a {{RESTAURANT_NAME}}! Soy {agent_name}, ¿qué pizza te apetece probar hoy?",
+    "greeting_en": "Welcome to {{RESTAURANT_NAME}}! I'm {agent_name}, what pizza would you like to try today?"
+  },
+  "operational_hours": {
+    "monday": {"open": "12:00", "close": "23:30"},
+    "tuesday": {"open": "12:00", "close": "23:30"},
+    "wednesday": {"open": "12:00", "close": "23:30"},
+    "thursday": {"open": "12:00", "close": "23:30"},
+    "friday": {"open": "12:00", "close": "24:00"},
+    "saturday": {"open": "12:00", "close": "24:00"},
+    "sunday": {"open": "17:00", "close": "23:00"}
+  },
+  "contact_info": {
+    "phone": "{{PHONE}}",
+    "email": "info@{{RESTAURANT_ID}}.com",
+    "website": "www.{{RESTAURANT_ID}}.com",
+    "address": "{{LOCATION}}",
+    "social_media": {
+      "instagram": "@{{RESTAURANT_ID}}",
+      "facebook": "{{RESTAURANT_NAME}}"
+    }
+  },
+  "features": {
+    "reservations": true,
+    "delivery": true,
+    "takeaway": true,
+    "private_events": false,
+    "wine_tasting": false,
+    "cooking_classes": false
+  }
+} 

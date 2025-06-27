@@ -1,0 +1,122 @@
+{
+  "menu": {
+    "entrantes": [
+      {
+        "id": "ent01",
+        "name": "Pan de Ajo",
+        "category": "entrantes",
+        "description": "Nuestra masa de pizza al horno con ajo, hierbas y aceite de oliva.",
+        "price": 5.50,
+        "ingredients": ["masa de pizza", "ajo", "hierbas", "aceite de oliva"],
+        "allergens": ["gluten"],
+        "diet_tags": ["vegetariano", "vegano"]
+      },
+      {
+        "id": "ent02",
+        "name": "Focaccia Rellena",
+        "category": "entrantes",
+        "description": "Focaccia casera rellena de jamón, queso y tomate, horneada hasta dorar.",
+        "price": 7.90,
+        "ingredients": ["masa focaccia", "jamón", "queso", "tomate"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": []
+      }
+    ],
+    "ensaladas": [
+      {
+        "id": "ens01",
+        "name": "Ensalada Verde",
+        "category": "ensaladas",
+        "description": "Mix de lechugas frescas con tomate, pepino y vinagreta casera.",
+        "price": 6.50,
+        "ingredients": ["lechugas", "tomate", "pepino", "vinagreta"],
+        "allergens": [],
+        "diet_tags": ["vegetariano", "vegano", "sin gluten"]
+      },
+      {
+        "id": "ens02",
+        "name": "Ensalada Caprese",
+        "category": "ensaladas",
+        "description": "Tomate fresco, mozzarella de búfala, albahaca y aceite de oliva virgen extra.",
+        "price": 9.50,
+        "ingredients": ["tomate", "mozzarella de búfala", "albahaca", "aceite de oliva"],
+        "allergens": ["lactosa"],
+        "diet_tags": ["vegetariano", "sin gluten"]
+      }
+    ],
+    "pizzas": [
+      {
+        "id": "piz01",
+        "name": "Margherita",
+        "category": "pizzas",
+        "description": "La clásica: salsa de tomate, mozzarella y albahaca fresca.",
+        "price": 9.90,
+        "ingredients": ["salsa de tomate", "mozzarella", "albahaca"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "piz02",
+        "name": "Pepperoni",
+        "category": "pizzas",
+        "description": "Salsa de tomate, mozzarella y pepperoni picante.",
+        "price": 12.50,
+        "ingredients": ["salsa de tomate", "mozzarella", "pepperoni"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": []
+      },
+      {
+        "id": "piz03",
+        "name": "Quattro Stagioni",
+        "category": "pizzas",
+        "description": "Tomate, mozzarella, jamón, champiñones, alcachofas y aceitunas.",
+        "price": 14.90,
+        "ingredients": ["tomate", "mozzarella", "jamón", "champiñones", "alcachofas", "aceitunas"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": []
+      },
+      {
+        "id": "piz04",
+        "name": "Vegetariana",
+        "category": "pizzas",
+        "description": "Tomate, mozzarella, pimientos, cebolla, champiñones y calabacín.",
+        "price": 13.50,
+        "ingredients": ["tomate", "mozzarella", "pimientos", "cebolla", "champiñones", "calabacín"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "piz05",
+        "name": "Quattro Formaggi",
+        "category": "pizzas",
+        "description": "Mozzarella, gorgonzola, parmesano y queso de cabra.",
+        "price": 15.50,
+        "ingredients": ["mozzarella", "gorgonzola", "parmesano", "queso de cabra"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      }
+    ],
+    "postres": [
+      {
+        "id": "pos01",
+        "name": "Tiramisú",
+        "category": "postres",
+        "description": "El clásico postre italiano con mascarpone, café y cacao.",
+        "price": 5.50,
+        "ingredients": ["mascarpone", "bizcochos", "café", "cacao"],
+        "allergens": ["lactosa", "gluten", "huevo"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "pos02",
+        "name": "Panna Cotta",
+        "category": "postres",
+        "description": "Cremoso postre de nata con coulis de frutos rojos.",
+        "price": 5.00,
+        "ingredients": ["nata", "azúcar", "gelatina", "frutos rojos"],
+        "allergens": ["lactosa"],
+        "diet_tags": ["vegetariano", "sin gluten"]
+      }
+    ]
+  }
+} 

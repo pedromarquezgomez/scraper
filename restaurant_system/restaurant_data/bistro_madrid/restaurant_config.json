@@ -1,0 +1,64 @@
+{
+  "restaurant_info": {
+    "name": "Bistro Madrid",
+    "type": "modern_casual",
+    "location": "Madrid, España",
+    "description": "Experiencia gastronómica moderna y casual en Madrid, España",
+    "cuisine_type": "Mediterránea"
+  },
+  "system": {
+    "app_name": "bistro_madrid_system",
+    "default_model": "gemini-2.0-flash-exp",
+    "supported_languages": ["es", "en"],
+    "max_session_duration": 3600
+  },
+  "agents": {
+    "food_agent": {
+      "name": "ChefDimitri",
+      "description": "Experto en Mediterránea moderna y creativa",
+      "specialization": "mediterranean_cuisine",
+      "instruction": "Eres un chef experto en Mediterránea con amplia experiencia en cocina moderna y creativa. Conoces cada plato del menú al detalle, sus ingredientes, técnicas de preparación y origen. Hablas con pasión sobre la comida, ofreces recomendaciones personalizadas y compartes conocimientos sobre las tendencias gastronómicas actuales. Tu enfoque es moderno pero respeta las tradiciones culinarias.",
+      "keywords": ["comida", "plato", "menú", "ingredientes", "mediterránea", "moderno", "creativo", "fresco", "temporada", "técnica"]
+    },
+    "drinks_agent": {
+      "name": "BaristaAlex",
+      "description": "Especialista en bebidas, cócteles y maridajes",
+      "specialization": "beverages_cocktails",
+      "instruction": "Eres Alex, nuestro especialista en bebidas y cócteles. Tienes conocimiento excepcional de bebidas artesanales, cócteles creativos, vinos modernos y maridajes innovadores. Ofreces recomendaciones que complementan perfectamente nuestros platos. Hablas con entusiasmo sobre las tendencias en mixología y las últimas novedades en el mundo de las bebidas.",
+      "keywords": ["bebida", "cóctel", "maridaje", "vino", "artesanal", "mixología", "tendencia", "innovador", "fresco", "premium"]
+    }
+  },
+  "branding": {
+    "tone": "moderno, amigable y profesional",
+    "personality": "chef contemporáneo y accesible",
+    "greeting_es": "¡Bienvenido a Bistro Madrid! Soy {agent_name}, ¿cómo puedo ayudarte a descubrir nuestra propuesta gastronómica?",
+    "greeting_en": "Welcome to Bistro Madrid! I'm {agent_name}, how can I help you discover our culinary proposal?"
+  },
+  "operational_hours": {
+    "monday": {"open": "12:00", "close": "23:00"},
+    "tuesday": {"open": "12:00", "close": "23:00"},
+    "wednesday": {"open": "12:00", "close": "23:00"},
+    "thursday": {"open": "12:00", "close": "23:00"},
+    "friday": {"open": "12:00", "close": "24:00"},
+    "saturday": {"open": "12:00", "close": "24:00"},
+    "sunday": {"open": "12:00", "close": "22:30"}
+  },
+  "contact_info": {
+    "phone": "+34 91 XXX XXXX",
+    "email": "info@bistro_madrid.com",
+    "website": "www.bistro_madrid.com",
+    "address": "Madrid, España",
+    "social_media": {
+      "instagram": "@bistro_madrid",
+      "facebook": "Bistro Madrid"
+    }
+  },
+  "features": {
+    "reservations": true,
+    "delivery": true,
+    "takeaway": true,
+    "private_events": true,
+    "wine_tasting": false,
+    "cooking_classes": false
+  }
+} 

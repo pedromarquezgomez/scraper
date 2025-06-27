@@ -1,0 +1,10 @@
+{
+  "restaurant_id": "pizza_palace",
+  "name": "Pizza Palace",
+  "type": "pizzeria",
+  "location": "Barcelona, España",
+  "languages": ["es", "en"],
+  "timezone": "Europe/Madrid",
+  "created_at": "2025-06-27T10:48:13Z",
+  "last_updated": "2025-06-27T10:48:13Z"
+} 

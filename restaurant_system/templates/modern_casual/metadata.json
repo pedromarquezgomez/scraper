@@ -1,0 +1,10 @@
+{
+  "restaurant_id": "{{RESTAURANT_ID}}",
+  "name": "{{RESTAURANT_NAME}}",
+  "type": "modern_casual",
+  "location": "{{LOCATION}}",
+  "languages": ["es", "en"],
+  "timezone": "Europe/Madrid",
+  "created_at": "{{CREATED_AT}}",
+  "last_updated": "{{CREATED_AT}}"
+} 
