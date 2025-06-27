@@ -192,6 +192,13 @@ adk_artifacts/
 sessions/
 *.session
 
+# Coverage reports organizados
+coverage_reports/
+
+# Archivos temporales de testing
+.pytest_cache/
+.cache/
+
 # Backups
 *.bak
 *.backup

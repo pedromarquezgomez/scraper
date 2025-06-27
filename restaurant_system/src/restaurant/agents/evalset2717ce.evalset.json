@@ -1,0 +1,111 @@
+{
+  "eval_set_id": "evalset2717ce",
+  "name": "evalset2717ce",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "case388eaf",
+      "conversation": [
+        {
+          "invocation_id": "e-ce36edbd-c08e-4bb9-a0f9-6a2c9a47d923",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "hola que tienes de aperitivo hoy?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "¡Hola! Para los aperitivos, ¿estás buscando algo en particular? Tenemos varias opciones deliciosas. ¿Te gustaría algo ligero y fresco, o algo más sustancioso?"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-bca52b0c-76fd-4bd6-849b-53404c6f239a",
+                "args": {
+                  "agent_name": "FoodSpecialist"
+                },
+                "name": "transfer_to_agent"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1751012740.943353
+        },
+        {
+          "invocation_id": "e-11c1d4cb-ff06-4694-8e67-1b2a1336a9ca",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "algo ligero"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "¡Perfecto! Dentro de las opciones ligeras, te puedo recomendar el carpaccio de salmón, que es muy fresco y viene con una vinagreta de cítricos deliciosa. También tenemos una ensalada de aguacate y mango, que es súper refrescante. ¿Cuál de estas te llama más la atención, o te doy alguna otra sugerencia?\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1751012755.335126
+        }
+      ],
+      "session_input": {
+        "app_name": "agents",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1751013057.60533
+    }
+  ],
+  "creation_timestamp": 1751013048.5868611
+}

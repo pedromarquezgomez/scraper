@@ -11,26 +11,31 @@ Sistema basado en Agent Development Kit (ADK) de Google
 from dataclasses import dataclass
 from typing import Dict, List, Optional
 
+
 @dataclass
 class AgentConfig:
     """Configuración para un agente especializado"""
+
     name: str
     description: str
     specialization: str
     instruction: str
     keywords: List[str]  # Palabras clave para routing
-    
+
+
 @dataclass
 class SystemConfig:
     """Configuración general del sistema"""
+
     app_name: str = "restaurant_multiagent_system"
     default_model: str = "gemini-2.0-flash-exp"
     supported_languages: List[str] = None
     max_session_duration: int = 3600  # segundos
-    
+
     def __post_init__(self):
         if self.supported_languages is None:
             self.supported_languages = ["es", "en", "fr", "de", "it"]
+
 
 # Configuración de agentes especializados
 AGENT_CONFIGS = {
@@ -50,13 +55,27 @@ Tu conocimiento incluye:
 Responde siempre de manera amigable, profesional y detallada.
 Si no conoces algo específico, sé honesto pero ofrece alternativas.
 """,
-        keywords=["comida", "plato", "menú", "ingredientes", "alérgenos", "preparación", 
-                 "receta", "cocina", "chef", "food", "dish", "menu", "ingredients", 
-                 "allergens", "cooking", "recipe"]
+        keywords=[
+            "comida",
+            "plato",
+            "menú",
+            "ingredientes",
+            "alérgenos",
+            "preparación",
+            "receta",
+            "cocina",
+            "chef",
+            "food",
+            "dish",
+            "menu",
+            "ingredients",
+            "allergens",
+            "cooking",
+            "recipe",
+        ],
     ),
-    
     "drinks_agent": AgentConfig(
-        name="DrinksSpecialist", 
+        name="DrinksSpecialist",
         description="Especialista en bebidas, maridajes y carta de vinos",
         specialization="drinks",
         instruction="""
@@ -71,15 +90,30 @@ Tu conocimiento incluye:
 Responde con pasión por las bebidas y ofrece maridajes creativos.
 Explica las características organolépticas cuando sea relevante.
 """,
-        keywords=["bebida", "vino", "cerveza", "cóctel", "maridaje", "sumiller",
-                 "carta", "bodega", "añada", "drinks", "wine", "beer", "cocktail",
-                 "pairing", "sommelier", "cellar", "vintage"]
+        keywords=[
+            "bebida",
+            "vino",
+            "cerveza",
+            "cóctel",
+            "maridaje",
+            "sumiller",
+            "carta",
+            "bodega",
+            "añada",
+            "drinks",
+            "wine",
+            "beer",
+            "cocktail",
+            "pairing",
+            "sommelier",
+            "cellar",
+            "vintage",
+        ],
     ),
-    
     "nutrition_agent": AgentConfig(
         name="NutritionSpecialist",
         description="Especialista en nutrición y recomendaciones dietéticas",
-        specialization="nutrition", 
+        specialization="nutrition",
         instruction="""
 Eres un nutricionista especializado en gastronomía saludable.
 Tu conocimiento incluye:
@@ -92,18 +126,35 @@ Tu conocimiento incluye:
 Responde con base científica pero de manera accesible.
 Prioriza siempre la seguridad alimentaria en casos de alergias.
 """,
-        keywords=["nutrición", "dieta", "alergia", "intolerancia", "vegano", "vegetariano",
-                 "gluten", "lactosa", "saludable", "calorías", "nutrition", "diet", 
-                 "allergy", "intolerance", "vegan", "vegetarian", "healthy", "calories"]
-    )
+        keywords=[
+            "nutrición",
+            "dieta",
+            "alergia",
+            "intolerancia",
+            "vegano",
+            "vegetariano",
+            "gluten",
+            "lactosa",
+            "saludable",
+            "calorías",
+            "nutrition",
+            "diet",
+            "allergy",
+            "intolerance",
+            "vegan",
+            "vegetarian",
+            "healthy",
+            "calories",
+        ],
+    ),
 }
 
 # Configuración de routing para el orquestador
 ROUTING_CONFIG = {
     "default_agent": "food_agent",  # Agente por defecto si no se puede determinar la intención
-    "confidence_threshold": 0.7,   # Umbral de confianza para routing automático
-    "fallback_strategy": "ask_user", # "ask_user" | "default_agent" | "all_agents"
-    "max_routing_attempts": 3
+    "confidence_threshold": 0.7,  # Umbral de confianza para routing automático
+    "fallback_strategy": "ask_user",  # "ask_user" | "default_agent" | "all_agents"
+    "max_routing_attempts": 3,
 }
 
 # Mensajes del sistema en múltiples idiomas
@@ -112,14 +163,14 @@ SYSTEM_MESSAGES = {
         "welcome": "¡Bienvenido a nuestro restaurante! ¿En qué puedo ayudarte hoy?",
         "routing_clarification": "Para darte la mejor respuesta, ¿tu consulta es sobre comida, bebidas o información nutricional?",
         "error": "Disculpa, ha ocurrido un error. ¿Podrías reformular tu pregunta?",
-        "goodbye": "¡Gracias por visitarnos! Esperamos verte pronto."
+        "goodbye": "¡Gracias por visitarnos! Esperamos verte pronto.",
     },
     "en": {
         "welcome": "Welcome to our restaurant! How can I help you today?",
         "routing_clarification": "To give you the best answer, is your question about food, drinks, or nutrition?",
         "error": "Sorry, an error occurred. Could you rephrase your question?",
-        "goodbye": "Thank you for visiting us! We hope to see you soon."
-    }
+        "goodbye": "Thank you for visiting us! We hope to see you soon.",
+    },
 }
 
 # Configuración de la base de datos del restaurante (datos dummy)
@@ -129,22 +180,33 @@ RESTAURANT_DATA = {
             {
                 "name": "Ensalada César Gourmet",
                 "price": 12.50,
-                "ingredients": ["lechuga romana", "parmesano", "crutones", "anchoas", "aderezo césar"],
+                "ingredients": [
+                    "lechuga romana",
+                    "parmesano",
+                    "crutones",
+                    "anchoas",
+                    "aderezo césar",
+                ],
                 "allergens": ["gluten", "pescado", "lácteos"],
                 "calories": 280,
-                "diet_tags": ["vegetariano"]
+                "diet_tags": ["vegetariano"],
             }
         ],
         "main_courses": [
             {
                 "name": "Salmón a la Plancha",
                 "price": 24.90,
-                "ingredients": ["salmón fresco", "verduras asadas", "quinoa", "salsa de limón"],
+                "ingredients": [
+                    "salmón fresco",
+                    "verduras asadas",
+                    "quinoa",
+                    "salsa de limón",
+                ],
                 "allergens": ["pescado"],
                 "calories": 450,
-                "diet_tags": ["sin gluten", "alto en omega-3"]
+                "diet_tags": ["sin gluten", "alto en omega-3"],
             }
-        ]
+        ],
     },
     "wines": [
         {
@@ -153,7 +215,7 @@ RESTAURANT_DATA = {
             "origin": "España",
             "year": 2019,
             "price": 32.00,
-            "pairings": ["carnes rojas", "quesos curados"]
+            "pairings": ["carnes rojas", "quesos curados"],
         }
-    ]
-} 
+    ],
+}

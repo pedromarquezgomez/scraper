@@ -1,0 +1,48 @@
+{
+  "evaluation_set": {
+    "name": "Restaurant Multi-Agent System Evaluation",
+    "description": "Comprehensive evaluation set for the restaurant multi-agent system",
+    "version": "1.0.0"
+  },
+  "test_cases": [
+    {
+      "id": "food_query_001",
+      "category": "food_inquiry",
+      "input": {
+        "query": "¿Qué ingredientes tiene la paella valenciana?",
+        "user_id": "test_user_001"
+      },
+      "expected_output": {
+        "intent": "food_inquiry",
+        "should_contain": ["arroz", "ingredientes", "paella"],
+        "response_type": "informative"
+      }
+    },
+    {
+      "id": "allergen_query_002", 
+      "category": "nutrition_safety",
+      "input": {
+        "query": "Soy alérgico a los frutos secos. ¿Qué platos puedo comer?",
+        "user_id": "test_user_002"
+      },
+      "expected_output": {
+        "intent": "nutrition_inquiry",
+        "should_contain": ["sin frutos secos", "seguro", "opciones"],
+        "safety_check": true
+      }
+    },
+    {
+      "id": "wine_pairing_003",
+      "category": "drinks_pairing", 
+      "input": {
+        "query": "¿Qué vino recomiendan para el salmón?",
+        "user_id": "test_user_003"
+      },
+      "expected_output": {
+        "intent": "drinks_inquiry",
+        "should_contain": ["vino", "salmón", "maridaje"],
+        "response_type": "recommendation"
+      }
+    }
+  ]
+} 
