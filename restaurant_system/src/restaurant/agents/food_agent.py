@@ -24,7 +24,7 @@ class FoodSpecialistAgent:
     Agente Especialista en Comida y Gastronomía - Arquitectura SaaS
     
     FASE 2: Configuración Dinámica Multi-Tenant
-    
+
     Responsabilidades:
     - Información detallada sobre platos del menú del restaurante específico
     - Ingredientes y métodos de preparación personalizados
@@ -60,10 +60,10 @@ class FoodSpecialistAgent:
         self.agent_config = agent_config or restaurant_config.agent_configs.get("food_agent")
         if not self.agent_config:
             raise ValueError("No se pudo encontrar configuración para food_agent")
-        
+
         # Crear herramientas específicas usando datos dinámicos del restaurante
         self.tools = self._create_food_tools()
-        
+
         # Crear agente ADK usando configuración dinámica
         self.agent = self._create_agent()
 
@@ -224,9 +224,9 @@ class FoodSpecialistAgent:
                     ingredients = [ing.lower() for ing in item.get("ingredients", [])]
                     if any(ingredient_lower in ing for ing in ingredients):
                         dishes_with_ingredient.append({
-                            "dish": item["name"],
-                            "category": category,
-                            "price": item["price"],
+                                "dish": item["name"],
+                                "category": category,
+                                "price": item["price"],
                             "dish_id": item.get("id", ""),
                             "all_ingredients": item.get("ingredients", [])
                         })
@@ -273,9 +273,9 @@ class FoodSpecialistAgent:
                         # Calcular score usando datos del restaurante
                         score = self._calculate_recommendation_score(item, preferences)
                         recommendations.append({
-                            **item,
-                            "category": category,
-                            "recommendation_score": score,
+                                **item,
+                                "category": category,
+                                "recommendation_score": score,
                             "reasons": self._get_recommendation_reasons(item, preferences),
                             "restaurant_specialty": self._is_restaurant_specialty(item["name"])
                         })
@@ -450,7 +450,7 @@ RECUERDA: Eres {self.agent_config.name} de {self.metadata.name}, especialista en
     def _get_recommendation_reasons(self, item: Dict, preferences: Dict) -> List[str]:
         """Genera razones personalizadas para recomendaciones"""
         reasons = []
-        
+
         if self._is_restaurant_specialty(item["name"]):
             reasons.append(f"Especialidad de {self.metadata.name}")
 
@@ -471,7 +471,7 @@ RECUERDA: Eres {self.agent_config.name} de {self.metadata.name}, especialista en
         # Lógica simple: platos con precio premium o keywords de especialidad
         cuisine_type = self.restaurant_info.get('cuisine_type', '').lower()
         dish_lower = dish_name.lower()
-        
+
         return cuisine_type in dish_lower or any(
             keyword in dish_lower 
             for keyword in ['especial', 'chef', 'casa', 'signature', 'premium']

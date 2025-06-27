@@ -1,0 +1,10 @@
+{
+  "restaurant_id": "caf_madrid_test",
+  "name": "Café Madrid Test",
+  "type": "modern_casual",
+  "location": "Madrid Centro, España",
+  "languages": ["es", "en"],
+  "timezone": "Europe/Madrid",
+  "created_at": "2025-06-27T10:55:03Z",
+  "last_updated": "2025-06-27T10:55:03Z"
+} 
