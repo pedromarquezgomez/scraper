@@ -15,9 +15,9 @@ from google.adk.runners import InMemoryRunner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from agents.food_agent import FoodSpecialistAgent
-from agents.orchestrator_agent import RestaurantOrchestrator
-from config.system_config import SYSTEM_MESSAGES, SystemConfig
+from .agents.food_agent import FoodSpecialistAgent
+from .agents.orchestrator_agent import RestaurantOrchestrator
+from .config.system_config import SYSTEM_MESSAGES, SystemConfig
 
 
 class RestaurantMultiAgentSystem:

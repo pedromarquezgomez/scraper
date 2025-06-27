@@ -6,7 +6,7 @@ Basado en el repositorio oficial: https://github.com/google/adk-python.git
 from google.adk.agents import Agent
 from google.adk.tools import FunctionTool
 
-from config.system_config import RESTAURANT_DATA
+from ..config.system_config import RESTAURANT_DATA
 
 
 def create_food_specialist():

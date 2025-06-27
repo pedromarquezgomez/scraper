@@ -15,8 +15,8 @@ import click
 sys.path.insert(0, str(Path(__file__).parent))
 
 try:
-    from config.system_config import SystemConfig
-    from main import RestaurantMultiAgentSystem
+    from .config.system_config import SystemConfig
+    from .main import RestaurantMultiAgentSystem
 except ImportError:
     # Para desarrollo, cuando se ejecuta desde el directorio del proyecto
     from restaurant_system.config.system_config import SystemConfig

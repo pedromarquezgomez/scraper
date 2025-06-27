@@ -13,9 +13,9 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from config.system_config import AGENT_CONFIGS
-from agents.orchestrator_agent import RestaurantOrchestrator
-from agents.food_agent import FoodSpecialistAgent
+from restaurant.config.system_config import AGENT_CONFIGS
+from restaurant.agents.orchestrator_agent import RestaurantOrchestrator
+from restaurant.agents.food_agent import FoodSpecialistAgent
 
 
 class TestMainOrchestrator:
@@ -34,7 +34,7 @@ class TestMainOrchestrator:
     @pytest.fixture 
     def config(self):
         """Configuración mock para testing."""
-        from config.system_config import SystemConfig
+        from restaurant.config.system_config import SystemConfig
         return SystemConfig()
 
     @pytest.fixture
@@ -97,8 +97,8 @@ class TestMainOrchestrator:
     def test_system_with_real_agents(self):
         """Test con agentes reales del sistema."""
         # Test simplificado sin dependencias externas
-        from config.system_config import SystemConfig
-        from agents.food_agent import FoodSpecialistAgent
+        from restaurant.config.system_config import SystemConfig
+        from restaurant.agents.food_agent import FoodSpecialistAgent
         
         config = SystemConfig()
         food_agent = FoodSpecialistAgent(config)

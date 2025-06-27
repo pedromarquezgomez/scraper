@@ -15,7 +15,7 @@ from google.adk.models import Gemini
 from google.adk.tools import FunctionTool
 from google.genai import types
 
-from config.system_config import AGENT_CONFIGS, RESTAURANT_DATA, SystemConfig
+from ..config.system_config import AGENT_CONFIGS, RESTAURANT_DATA, SystemConfig
 
 
 class FoodSpecialistAgent:

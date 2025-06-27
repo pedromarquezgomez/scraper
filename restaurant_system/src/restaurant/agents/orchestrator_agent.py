@@ -17,7 +17,7 @@ from google.adk.models import Gemini
 from google.adk.tools import FunctionTool, transfer_to_agent
 from google.genai import types
 
-from config.system_config import (
+from ..config.system_config import (
     AGENT_CONFIGS,
     ROUTING_CONFIG,
     SYSTEM_MESSAGES,
