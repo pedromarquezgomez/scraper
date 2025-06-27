@@ -1,0 +1,12 @@
+# Dependencias principales del proyecto
+google-adk-python>=1.5.0
+google-cloud-aiplatform
+google-cloud-storage
+vertexai
+jsonschema>=4.0.0
+
+# Dependencias adicionales
+asyncio
+logging
+dataclasses
+typing
