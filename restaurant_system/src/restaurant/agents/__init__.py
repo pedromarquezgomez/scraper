@@ -18,12 +18,10 @@ except ImportError:
     modern_available = False
 
 # Exponer agentes originales para compatibilidad
-from .orchestrator_agent import RestaurantOrchestrator
 from .food_agent import FoodSpecialistAgent
 
 __all__ = [
     "root_agent",
-    "RestaurantOrchestrator", 
     "FoodSpecialistAgent"
 ]
 

@@ -16,7 +16,7 @@ from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
 from .agents.food_agent import FoodSpecialistAgent
-from .agents.orchestrator_agent import RestaurantOrchestrator
+from .agents.modern_system import create_modern_restaurant_system
 from .config.system_config import SYSTEM_MESSAGES, SystemConfig
 
 
@@ -38,14 +38,12 @@ class RestaurantMultiAgentSystem:
         # Inicializar agentes especializados
         self.specialist_agents = self._initialize_specialist_agents()
 
-        # Crear orquestador principal
-        self.orchestrator = RestaurantOrchestrator(
-            specialist_agents=self.specialist_agents, config=self.config
-        )
+        # Crear sistema moderno
+        self.modern_system = create_modern_restaurant_system()
 
         # Crear runner principal
         self.runner = InMemoryRunner(
-            agent=self.orchestrator.orchestrator_agent, app_name=self.config.app_name
+            agent=self.modern_system, app_name=self.config.app_name
         )
 
         print("🍽️ Sistema Multiagente del Restaurante inicializado correctamente!")
@@ -109,8 +107,11 @@ class RestaurantMultiAgentSystem:
                         if part.text:
                             response_parts.append(part.text)
 
-            # Por ahora usamos la implementación simplificada del orquestador
-            return await self.orchestrator.process_customer_query(query)
+            # El runner de ADK maneja automáticamente la respuesta del sistema moderno
+            if response_parts:
+                return "\n".join(response_parts)
+            else:
+                return "Sistema moderno procesando tu consulta..."
 
         except Exception as e:
             print(f"❌ Error procesando consulta: {e}")
