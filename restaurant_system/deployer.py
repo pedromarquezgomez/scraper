@@ -55,7 +55,7 @@ class DeploymentConfig:
     STAGING_BUCKET = "gs://sumy-agent-staging"  # Bucket para staging
     
     # Configuración del meta-agente
-    AGENT_NAME = "restaurant-meta-agent"
+    AGENT_NAME = "restaurant_meta_agent"
     AGENT_DESCRIPTION = "Meta-agente SaaS multi-tenant para restaurantes"
     MODEL = "gemini-2.0-flash-exp"
 
@@ -65,23 +65,21 @@ class DeploymentConfig:
 
 def get_restaurant_response(restaurant_id: str, user_query: str) -> str:
     """
-    Función de herramienta del meta-agente que enruta consultas dinámicamente.
+    Obtiene respuesta personalizada de un restaurante específico.
     
-    Esta es la función clave que implementa la arquitectura multi-tenant:
-    1. Carga configuración del restaurant_id usando ConfigManager
-    2. Crea instancia temporal de FoodSpecialistAgent 
-    3. Ejecuta la consulta del usuario
-    4. Devuelve respuesta personalizada
+    Usa esta herramienta para TODAS las consultas del usuario. Extrae el restaurant_id
+    de la consulta del usuario y pásalo junto con su pregunta.
     
     Args:
-        restaurant_id: ID del restaurante (ej: "demo_restaurant")
+        restaurant_id: ID del restaurante (ej: "demo_restaurant", "pizza_palace", "bistro_madrid")
         user_query: Consulta del usuario (ej: "¿Cuál es tu especialidad?")
     
     Returns:
         str: Respuesta personalizada del chef del restaurante
-        
-    Raises:
-        Exception: Si el restaurant_id no existe o hay error interno
+    
+    Ejemplos de uso:
+    - Si el usuario dice "restaurant_id=demo_restaurant ¿Cuál es tu especialidad?"
+    - Llama: get_restaurant_response("demo_restaurant", "¿Cuál es tu especialidad?")
     """
     try:
         logger.info(f"🔄 Procesando consulta para {restaurant_id}: {user_query[:50]}...")
@@ -92,8 +90,8 @@ def get_restaurant_response(restaurant_id: str, user_query: str) -> str:
         # 2. Cargar configuración del restaurante
         try:
             restaurant_config = config_manager.load_restaurant_config(restaurant_id)
-            logger.info(f"✅ Configuración cargada para {restaurant_config.restaurant_name}")
-        except FileNotFoundError:
+            logger.info(f"✅ Configuración cargada para {restaurant_config.metadata.name}")
+        except Exception as config_error:
             # Manejo de error para restaurante no encontrado
             available_restaurants = config_manager.list_restaurants()
             error_message = f"""❌ Restaurante '{restaurant_id}' no encontrado.
@@ -102,17 +100,18 @@ def get_restaurant_response(restaurant_id: str, user_query: str) -> str:
 
 💡 Verifica el restaurant_id e intenta nuevamente."""
             
-            logger.warning(f"Restaurant not found: {restaurant_id}")
+            logger.warning(f"Restaurant config error: {config_error}")
             return error_message
         
         # 3. Crear instancia temporal del FoodSpecialistAgent
         food_agent = FoodSpecialistAgent(restaurant_config)
-        logger.info(f"🤖 Agente {food_agent.chef_name} instanciado")
+        chef_name = restaurant_config.restaurant_data.get("restaurant_info", {}).get("chef_name", "Chef")
+        restaurant_name = restaurant_config.metadata.name
+        logger.info(f"🤖 Agente {chef_name} de {restaurant_name} instanciado")
         
-        # 4. Ejecutar consulta usando el agente especializado
-        # Nota: En un entorno real, aquí ejecutaríamos el agente ADK
-        # Por ahora, generamos una respuesta directa usando la lógica del agente
-        response = food_agent.generate_response(user_query)
+        # 4. Generar respuesta contextual usando datos del restaurante
+        # Simulamos la respuesta del agente usando los datos de configuración
+        response = _generate_contextual_response(restaurant_config, user_query)
         
         logger.info(f"✅ Respuesta generada exitosamente")
         return response
@@ -125,6 +124,73 @@ def get_restaurant_response(restaurant_id: str, user_query: str) -> str:
         
         logger.error(f"Internal error in get_restaurant_response: {e}")
         return error_message
+
+def _generate_contextual_response(restaurant_config: 'RestaurantConfig', user_query: str) -> str:
+    """
+    Genera respuesta contextual basada en la configuración del restaurante
+    
+    Args:
+        restaurant_config: Configuración del restaurante
+        user_query: Consulta del usuario
+        
+    Returns:
+        str: Respuesta personalizada del chef
+    """
+    chef_name = restaurant_config.restaurant_data.get("restaurant_info", {}).get("chef_name", "Chef")
+    restaurant_name = restaurant_config.metadata.name
+    cuisine_type = restaurant_config.restaurant_data.get("restaurant_info", {}).get("cuisine_type", "variada")
+    
+    # Obtener algunos platos del menú
+    menu_data = restaurant_config.restaurant_data.get("menu", {})
+    sample_dishes = []
+    for category, dishes in menu_data.items():
+        if dishes:
+            sample_dishes.extend([dish["name"] for dish in dishes[:2]])
+        if len(sample_dishes) >= 3:
+            break
+    
+    # Generar respuesta contextual
+    if "especialidad" in user_query.lower():
+        return f"""🍽️ ¡Hola! Soy {chef_name} de {restaurant_name}.
+
+🌟 Mi especialidad es la cocina {cuisine_type}. Me enorgullezco de crear experiencias culinarias auténticas.
+
+📋 Nuestras especialidades incluyen:
+• {sample_dishes[0] if len(sample_dishes) > 0 else "Platos especiales"}
+• {sample_dishes[1] if len(sample_dishes) > 1 else "Creaciones del chef"}  
+• {sample_dishes[2] if len(sample_dishes) > 2 else "Sabores únicos"}
+
+¿Te gustaría conocer más detalles sobre algún plato en particular?"""
+
+    elif "vegano" in user_query.lower() or "vegana" in user_query.lower():
+        return f"""🌱 ¡Por supuesto! En {restaurant_name} tenemos excelentes opciones veganas.
+
+Como {chef_name}, me especializo en adaptar nuestros platos tradicionales de cocina {cuisine_type} para dietas veganas sin perder el sabor auténtico.
+
+🥗 Te recomiendo especialmente: {sample_dishes[0] if sample_dishes else "nuestras opciones especiales"}
+
+¿Te gustaría que te recomiende algo específico según tus preferencias?"""
+
+    elif "recomend" in user_query.lower():
+        return f"""👨‍🍳 Como {chef_name} de {restaurant_name}, te recomiendo especialmente:
+
+🍜 Para cocina {cuisine_type} auténtica:
+• {sample_dishes[0] if len(sample_dishes) > 0 else "Plato del día"}
+• {sample_dishes[1] if len(sample_dishes) > 1 else "Especialidad de la casa"}
+• {sample_dishes[2] if len(sample_dishes) > 2 else "Creación del chef"}
+
+¿Hay algún tipo de plato específico que te interese? ¿Prefieres algo ligero o más contundente?"""
+
+    else:
+        return f"""🍽️ ¡Bienvenido a {restaurant_name}! Soy {chef_name}, tu chef especializado en cocina {cuisine_type}.
+
+📋 Te puedo ayudar con:
+• Recomendaciones de platos
+• Información nutricional y alergenos
+• Opciones especiales (veganas, sin gluten, etc.)
+• Sugerencias de maridaje
+
+¿En qué puedo ayudarte específicamente?"""
 
 # ============================================================================
 # DEFINICIÓN DEL META-AGENTE ADK
@@ -143,19 +209,7 @@ def create_meta_agent() -> Agent:
     logger.info("🔨 Creando meta-agente multi-tenant...")
     
     # Crear herramienta de enrutamiento
-    routing_tool = FunctionTool(
-        function=get_restaurant_response,
-        name="get_restaurant_response",
-        description="""Obtiene respuesta personalizada de un restaurante específico.
-        
-        Usa esta herramienta para TODAS las consultas del usuario. Extrae el restaurant_id
-        de la consulta del usuario y pásalo junto con su pregunta.
-        
-        Ejemplos de uso:
-        - Si el usuario dice "restaurant_id=demo_restaurant ¿Cuál es tu especialidad?"
-        - Llama: get_restaurant_response("demo_restaurant", "¿Cuál es tu especialidad?")
-        """
-    )
+    routing_tool = FunctionTool(get_restaurant_response)
     
     # Instrucciones para el meta-agente
     instructions = """🏪 Soy el Meta-Agente del Sistema SaaS de Restaurantes.
