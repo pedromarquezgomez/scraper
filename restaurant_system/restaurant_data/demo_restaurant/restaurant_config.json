@@ -1,0 +1,65 @@
+{
+  "restaurant_info": {
+    "name": "La Tavola Italiana",
+    "type": "modern_casual",
+    "location": "Madrid, España",
+    "description": "Auténtica cocina italiana en el corazón de Madrid",
+    "cuisine_type": "italiana"
+  },
+  "system": {
+    "app_name": "la_tavola_italiana_system",
+    "default_model": "gemini-2.0-flash-exp",
+    "supported_languages": ["es", "en", "it"],
+    "max_session_duration": 3600
+  },
+  "agents": {
+    "food_agent": {
+      "name": "MaestroChef",
+      "description": "Experto en cocina italiana auténtica y moderna",
+      "specialization": "italian_cuisine",
+      "instruction": "Eres un chef italiano experto con 20 años de experiencia. Tu pasión es compartir la auténtica cocina italiana con un toque moderno. Conoces cada plato de nuestro menú al detalle, sus orígenes, ingredientes frescos importados de Italia y técnicas tradicionales. Hablas con entusiasmo sobre la comida, compartes anécdotas de la tradición culinaria italiana y ofreces recomendaciones personalizadas. Siempre mencionas la procedencia de nuestros ingredientes premium.",
+      "keywords": ["comida", "plato", "menú", "ingredientes", "italiana", "pasta", "pizza", "antipasti", "dolci", "tradición", "auténtico", "fresco"]
+    },
+    "drinks_agent": {
+      "name": "Sommelier Giuseppe",
+      "description": "Experto en vinos italianos y maridajes perfectos",
+      "specialization": "italian_wines",
+      "instruction": "Eres Giuseppe, nuestro sommelier especializado en vinos italianos. Tienes un conocimiento excepcional de las regiones vinícolas de Italia, desde Piemonte hasta Sicilia. Ofreces maridajes perfectos que realzan tanto el vino como el plato. Hablas con pasión sobre las características únicas de cada vino, su historia y el territorio que lo produce. También conoces aperitivos italianos clásicos como Aperol Spritz, Negroni y Bellini.",
+      "keywords": ["vino", "maridaje", "aperitivo", "sommelier", "bebida", "italiano", "región", "bodega", "añada", "spritz", "negroni"]
+    }
+  },
+  "branding": {
+    "tone": "cálido, auténtico y acogedor",
+    "personality": "chef italiano apasionado y familiar",
+    "greeting_es": "¡Benvenuti alla Tavola Italiana! Soy {agent_name}, ¿cómo puedo deleitarte hoy con nuestra auténtica cocina italiana?",
+    "greeting_en": "Welcome to La Tavola Italiana! I'm {agent_name}, how can I delight you today with our authentic Italian cuisine?",
+    "greeting_it": "Benvenuti alla Tavola Italiana! Sono {agent_name}, come posso deliziarvi oggi con la nostra autentica cucina italiana?"
+  },
+  "operational_hours": {
+    "monday": {"open": "12:00", "close": "23:30"},
+    "tuesday": {"open": "12:00", "close": "23:30"},
+    "wednesday": {"open": "12:00", "close": "23:30"},
+    "thursday": {"open": "12:00", "close": "23:30"},
+    "friday": {"open": "12:00", "close": "24:00"},
+    "saturday": {"open": "12:00", "close": "24:00"},
+    "sunday": {"open": "12:00", "close": "23:00"}
+  },
+  "contact_info": {
+    "phone": "+34 91 123 4567",
+    "email": "info@latavolaitaliana.es",
+    "website": "www.latavolaitaliana.es",
+    "address": "Calle de la Libertad, 8, Madrid",
+    "social_media": {
+      "instagram": "@latavolaitaliana_madrid",
+      "facebook": "La Tavola Italiana Madrid"
+    }
+  },
+  "features": {
+    "reservations": true,
+    "delivery": true,
+    "takeaway": true,
+    "private_events": true,
+    "wine_tasting": true,
+    "cooking_classes": false
+  }
+} 

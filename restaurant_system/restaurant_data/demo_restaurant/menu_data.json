@@ -1,0 +1,124 @@
+{
+  "menu": {
+    "entrantes": [
+      {
+        "id": "ent01",
+        "name": "Pane all'aglio",
+        "category": "entrantes",
+        "description": "Nuestra masa de pizza al horno con ajo, mantequilla y mozzarella Fiordilatte.",
+        "price": 8.90,
+        "ingredients": ["masa de pizza", "ajo", "mantequilla", "mozzarella"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "ent02",
+        "name": "Pane al tartufo",
+        "category": "entrantes",
+        "description": "Nuestra masa de pizza al horno con mozzarella Fiordilatte y salsa de trufa blanca.",
+        "price": 9.90,
+        "ingredients": ["masa de pizza", "mozzarella", "salsa de trufa blanca"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "ent05",
+        "name": "Carpaccio di Manzo",
+        "category": "entrantes",
+        "description": "Finas lonchas de ternera, parmesano, pimienta negra, aceite de oliva virgen extra, rúcula, pistachos crujientes y vinagreta suave de limón.",
+        "price": 14.90,
+        "ingredients": ["ternera", "parmesano", "rúcula", "pistachos", "vinagreta de limón"],
+        "allergens": ["lactosa", "frutos secos"],
+        "diet_tags": []
+      }
+    ],
+    "insalate": [
+      {
+        "id": "ins02",
+        "name": "Caprese",
+        "category": "insalate",
+        "description": "Milhojas de tomate de campo fresco, rúcula, mozzarella, pesto de albahaca y vinagre de Módena.",
+        "price": 12.50,
+        "ingredients": ["tomate", "rúcula", "mozzarella", "pesto de albahaca", "vinagre de módena"],
+        "allergens": ["lactosa", "frutos secos"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "ins04",
+        "name": "Burrata fresca",
+        "category": "insalate",
+        "description": "Rúcula, tomatitos secos, tomatitos Cherry, Prosciutto di Parma, pan de Carasatu, vinagreta de Módena y pesto de albahaca.",
+        "price": 15.50,
+        "ingredients": ["burrata", "rúcula", "tomate seco", "tomate cherry", "prosciutto di parma", "pan de carasatu", "pesto"],
+        "allergens": ["gluten", "lactosa", "frutos secos"],
+        "diet_tags": []
+      }
+    ],
+    "paste": [
+      {
+        "id": "pas03",
+        "name": "Spaghetti Carbonara originale",
+        "category": "paste",
+        "description": "Receta original con Guanciale, yema de huevo, queso Pecorino Romano y pimienta negra.",
+        "price": 14.90,
+        "ingredients": ["spaghetti", "guanciale", "yema de huevo", "queso pecorino"],
+        "allergens": ["gluten", "huevo", "lactosa"],
+        "diet_tags": []
+      },
+      {
+        "id": "pas02",
+        "name": "Linguine al Pesto",
+        "category": "paste",
+        "description": "Salsa pesto casera con albahaca fresca, aceite de oliva, piñones y queso Parmesano.",
+        "price": 14.50,
+        "ingredients": ["linguine", "albahaca", "aceite de oliva", "piñones", "parmesano"],
+        "allergens": ["gluten", "lactosa", "frutos secos"],
+        "diet_tags": ["vegetariano"]
+      }
+    ],
+    "pizze": [
+      {
+        "id": "piz01",
+        "name": "Margherita",
+        "category": "pizze",
+        "description": "Tomate con albahaca, Mozzarella Fiordilatte y orégano.",
+        "price": 9.90,
+        "ingredients": ["tomate", "albahaca", "mozzarella fiordilatte", "orégano"],
+        "allergens": ["gluten", "lactosa"],
+        "diet_tags": ["vegetariano"]
+      },
+      {
+        "id": "piz19",
+        "name": "Burrata e Pistacchio Croccante",
+        "category": "pizze",
+        "description": "Base de pesto de pistacho, Burrata, tomates Cherry, Mortadela y crujiente de pistachos.",
+        "price": 16.90,
+        "ingredients": ["pesto de pistacho", "burrata", "tomate cherry", "mortadela", "pistachos"],
+        "allergens": ["gluten", "lactosa", "frutos secos"],
+        "diet_tags": []
+      }
+    ],
+    "postres": [
+      {
+        "id": "pos02",
+        "name": "Tiramisú Casero del Chef",
+        "category": "postres",
+        "description": "Receta tradicional con bizcochos, café, mascarpone y cacao.",
+        "price": 7.00,
+        "ingredients": ["mascarpone", "bizcochos", "café", "huevo", "cacao"],
+        "allergens": ["gluten", "huevo", "lactosa"],
+        "diet_tags": []
+      },
+      {
+        "id": "pos03",
+        "name": "Cannoli Siciliani",
+        "category": "postres",
+        "description": "Rollo de masa frita relleno de crema de ricotta, con trocitos de chocolate y pistacho.",
+        "price": 7.00,
+        "ingredients": ["harina", "ricotta", "chocolate", "pistacho"],
+        "allergens": ["gluten", "huevo", "lactosa", "frutos secos"],
+        "diet_tags": []
+      }
+    ]
+  }
+} 

@@ -1,0 +1,10 @@
+{
+  "restaurant_id": "demo_restaurant",
+  "name": "La Tavola Italiana",
+  "type": "modern_casual",
+  "location": "Madrid, España",
+  "languages": ["es", "en", "it"],
+  "timezone": "Europe/Madrid",
+  "created_at": "2025-01-22T10:00:00Z",
+  "last_updated": "2025-01-22T10:00:00Z"
+} 
