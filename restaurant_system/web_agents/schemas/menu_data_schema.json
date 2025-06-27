@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": [
+    "menu"
+  ],
+  "properties": {
+    "menu": {
+      "type": "object"
+    }
+  }
+}
