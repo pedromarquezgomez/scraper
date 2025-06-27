@@ -1,1 +1,22 @@
+# Directorios excluidos
 web_agents/
+restaurant_env/
+
+# Archivos temporales y cache
+*.pyc
+__pycache__/
+.pytest_cache/
+htmlcov/
+.coverage
+coverage_reports/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
